@@ -48,7 +48,7 @@ async function getComics(id, pubKey, privKey) {
   if (resp.data.count > 0) {
     console.log("Comics found for series: " + id);
     const comic = resp.data.results[0];
-    return { id: comic.id, title: comic.title }; // Return ID and title of the comic
+    return { id: id, title: comic.title }; // Return ID and title of the comic
   } else {
     console.log("No comics found for series: " + id);
     return null;
