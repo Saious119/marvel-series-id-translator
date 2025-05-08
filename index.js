@@ -33,6 +33,13 @@ app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
 
+/**
+ *
+ * @param {Number} id - Series ID
+ * @param {String} pubKey - Public key for Marvel API
+ * @param {String} privKey - Private key for Marvel API
+ * @returns the listing of comics if any, null otherwise
+ */
 async function getComics(id, pubKey, privKey) {
   const ts = dayjs().unix().toString();
   const hash = crypto.hash("md5", ts + privKey + pubKey);
@@ -55,6 +62,13 @@ async function getComics(id, pubKey, privKey) {
   }
 }
 
+/**
+ *
+ * @param {Number} series - List of series ID
+ * @param {String} pubKey - Public key for Marvel API
+ * @param {String} privKey - Private key for Marvel API
+ * @returns the listing of comics if any, null otherwise
+ */
 async function getSeriesArray(series, pubKey, privKey) {
   console.log("Fetching comics for series: " + series.join(", "));
 
